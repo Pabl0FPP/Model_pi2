@@ -23,4 +23,7 @@ public class Faculty {
     @Size(max = 30)
     @Column(name = "name", nullable = false, length = 30)
     private String name;
+
+    @OneToMany(mappedBy = "faculty")
+    private List<AcademicProgram> academicPrograms = new ArrayList<>();
 }
