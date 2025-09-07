@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import java.util.UUID;
 
 @Data
@@ -24,6 +27,6 @@ public class PlanningState {
     @Column(name = "state", nullable = false, length = 30)
     private String state;
 
-    @OneToMany(mappedBy = "planning_states")
+    @OneToMany(mappedBy = "planningState")
     private List<Planning> plannings = new ArrayList<>();
 }

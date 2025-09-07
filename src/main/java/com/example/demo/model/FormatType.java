@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import java.util.UUID;
 
 @Data
@@ -24,6 +27,6 @@ public class FormatType {
     @Column(name = "type", nullable = false, length = 10)
     private String type;
 
-    @OneToMany(mappedBy = "format_type")
+    @OneToMany(mappedBy = "formatType")
     private List<Class> classes = new ArrayList<>();
 }
