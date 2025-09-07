@@ -51,9 +51,8 @@ public class Planning {
     @JoinColumn(name = "planning_states_id", nullable = false)
     private PlanningState planningState;
 
-    @ManyToOne
-    @JoinColumn(name = "users_cc", nullable = false)
-    private User user;
+    @ManyToMany(mappedBy = "plannings")
+    private List<User> users = new ArrayList<>();
 
     @OneToMany(mappedBy = "planning")
     private List<PlanningVersion> planningVersions = new ArrayList<>();

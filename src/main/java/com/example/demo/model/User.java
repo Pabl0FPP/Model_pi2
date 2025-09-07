@@ -55,4 +55,12 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Comment> comments = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+        name = "users_plannings",
+        joinColumns = @JoinColumn(name = "users_cc"),
+        inverseJoinColumns = @JoinColumn(name = "plannings_id")
+    )
+    private List<Planning> plannings = new ArrayList<>();
 }
