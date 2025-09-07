@@ -23,4 +23,7 @@ public class FormatType {
     @Size(max = 10)
     @Column(name = "type", nullable = false, length = 10)
     private String type;
+
+    @OneToMany(mappedBy = "format_type")
+    private List<Class> classes = new ArrayList<>();
 }
