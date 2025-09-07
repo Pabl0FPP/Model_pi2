@@ -23,4 +23,7 @@ public class PlanningState {
     @Size(max = 30)
     @Column(name = "state", nullable = false, length = 30)
     private String state;
+
+    @OneToMany(mappedBy = "planning_states")
+    private List<Planning> plannings = new ArrayList<>();
 }
