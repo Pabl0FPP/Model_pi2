@@ -1,38 +1,35 @@
 -- === FACULTIES ===
-INSERT INTO faculties (id, name) VALUES ('FAC001', 'Engineering');
-INSERT INTO faculties (id, name) VALUES ('FAC002', 'Arts');
-INSERT INTO faculties (id, name) VALUES ('FAC003', 'Sciences');
-INSERT INTO faculties (id, name) VALUES ('FAC004', 'Business Administration');
+INSERT INTO faculties (id, name) VALUES ('FAC001', 'Barberi Faculty');
 
 -- === ACADEMIC_PROGRAMS ===
 INSERT INTO academic_programs (id, name, approvation_year, faculties_id)
 VALUES ('AP001', 'Computer Science', '2010', 'FAC001');
 INSERT INTO academic_programs (id, name, approvation_year, faculties_id)
-VALUES ('AP002', 'Fine Arts', '2015', 'FAC002');
+VALUES ('AP002', 'Systems Engineering', '2008', 'FAC001');
 INSERT INTO academic_programs (id, name, approvation_year, faculties_id)
-VALUES ('AP003', 'Systems Engineering', '2008', 'FAC001');
+VALUES ('AP003', 'Software Engineering', '2015', 'FAC001');
 INSERT INTO academic_programs (id, name, approvation_year, faculties_id)
-VALUES ('AP004', 'Mathematics', '2012', 'FAC003');
+VALUES ('AP004', 'Industrial Design', '2012', 'FAC001');
 INSERT INTO academic_programs (id, name, approvation_year, faculties_id)
-VALUES ('AP005', 'Business Administration', '2020', 'FAC004');
+VALUES ('AP005', 'Biomedical Engineering', '2020', 'FAC001');
 
 -- === SUBJECTS ===
 INSERT INTO subjects (id, name, semester, credits, intensity, academic_programs_id, order_num, group_num)
-VALUES ('SUB001', 'Databases', 5, 4, 5, 'AP001', 1, 1);
+VALUES ('SUB001', 'Database Systems', 5, 4, 5, 'AP001', 1, 1);
 INSERT INTO subjects (id, name, semester, credits, intensity, academic_programs_id, order_num, group_num)
-VALUES ('SUB002', 'Painting I', 1, 3, 4, 'AP002', 1, 1);
+VALUES ('SUB002', 'Programming Fundamentals', 1, 4, 6, 'AP001', 1, 1);
 INSERT INTO subjects (id, name, semester, credits, intensity, academic_programs_id, order_num, group_num)
-VALUES ('SUB003', 'Programming I', 2, 4, 6, 'AP001', 2, 1);
+VALUES ('SUB003', 'Data Structures and Algorithms', 3, 4, 5, 'AP001', 3, 1);
 INSERT INTO subjects (id, name, semester, credits, intensity, academic_programs_id, order_num, group_num)
-VALUES ('SUB004', 'Data Structures', 3, 4, 5, 'AP001', 3, 1);
+VALUES ('SUB004', 'Software Engineering Principles', 4, 3, 4, 'AP002', 1, 1);
 INSERT INTO subjects (id, name, semester, credits, intensity, academic_programs_id, order_num, group_num)
-VALUES ('SUB005', 'Software Engineering', 4, 3, 4, 'AP003', 1, 1);
+VALUES ('SUB005', 'Object-Oriented Programming', 2, 4, 6, 'AP003', 1, 1);
 INSERT INTO subjects (id, name, semester, credits, intensity, academic_programs_id, order_num, group_num)
-VALUES ('SUB006', 'Calculus I', 1, 4, 6, 'AP004', 1, 1);
+VALUES ('SUB006', 'Design Thinking', 1, 3, 4, 'AP004', 1, 1);
 INSERT INTO subjects (id, name, semester, credits, intensity, academic_programs_id, order_num, group_num)
-VALUES ('SUB007', 'Statistics', 2, 3, 4, 'AP004', 2, 1);
+VALUES ('SUB007', 'Human-Computer Interaction', 2, 3, 4, 'AP004', 2, 1);
 INSERT INTO subjects (id, name, semester, credits, intensity, academic_programs_id, order_num, group_num)
-VALUES ('SUB008', 'Marketing', 3, 3, 4, 'AP005', 1, 1);
+VALUES ('SUB008', 'Biomaterials and Biocompatibility', 3, 4, 5, 'AP005', 1, 1);
 
 -- === CONTRACT_TYPES ===
 INSERT INTO contract_types (id, type, description)
@@ -46,9 +43,17 @@ VALUES ('CT004', 'TMP', 'Temporary');
 
 -- === TEACHERS ===
 INSERT INTO teachers (cc, full_name, city, email1, is_active, academic_title, contract_type_id)
-VALUES ('T001', 'Alice Johnson', 'Bogotá', 'alice@uni.edu', true, 'PhD', 'CT001');
+VALUES ('T001', 'Dr. Alice Johnson', 'Cali', 'alice.johnson@icesi.edu.co', true, 'PhD in Computer Science', 'CT001');
 INSERT INTO teachers (cc, full_name, city, email1, is_active, academic_title, contract_type_id)
-VALUES ('T002', 'Bob Smith', 'Medellín', 'bob@uni.edu', true, 'MSc', 'CT002');
+VALUES ('T002', 'Prof. Carlos Mendez', 'Cali', 'carlos.mendez@icesi.edu.co', true, 'MSc in Systems Engineering', 'CT002');
+INSERT INTO teachers (cc, full_name, city, email1, is_active, academic_title, contract_type_id)
+VALUES ('T003', 'Dr. Diana Rodriguez', 'Cali', 'diana.rodriguez@icesi.edu.co', true, 'PhD in Software Engineering', 'CT001');
+INSERT INTO teachers (cc, full_name, city, email1, is_active, academic_title, contract_type_id)
+VALUES ('T004', 'Prof. Eduardo Vargas', 'Cali', 'eduardo.vargas@icesi.edu.co', true, 'MSc in Industrial Design', 'CT003');
+INSERT INTO teachers (cc, full_name, city, email1, is_active, academic_title, contract_type_id)
+VALUES ('T005', 'Dr. Fernanda Torres', 'Cali', 'fernanda.torres@icesi.edu.co', true, 'PhD in Biomedical Engineering', 'CT001');
+INSERT INTO teachers (cc, full_name, city, email1, is_active, academic_title, contract_type_id)
+VALUES ('T006', 'Prof. Miguel Sanchez', 'Cali', 'miguel.sanchez@icesi.edu.co', true, 'MSc in Mechanical Engineering', 'CT004');
 INSERT INTO teachers (cc, full_name, city, email1, is_active, academic_title, contract_type_id)
 VALUES ('T003', 'Carlos Mendez', 'Cali', 'carlos@uni.edu', true, 'PhD', 'CT001');
 INSERT INTO teachers (cc, full_name, city, email1, is_active, academic_title, contract_type_id)
@@ -66,15 +71,15 @@ VALUES ('G002', '01', 1, 'SUB002', 'T002');
 INSERT INTO groups (nrc, group_name, semester, subjects_id, teachers_id)
 VALUES ('G003', '02', 5, 'SUB001', 'T003');
 INSERT INTO groups (nrc, group_name, semester, subjects_id, teachers_id)
-VALUES ('G004', '01', 2, 'SUB003', 'T001');
+VALUES ('G004', '01', 3, 'SUB003', 'T001');
 INSERT INTO groups (nrc, group_name, semester, subjects_id, teachers_id)
-VALUES ('G005', '01', 3, 'SUB004', 'T003');
+VALUES ('G005', '01', 4, 'SUB004', 'T003');
 INSERT INTO groups (nrc, group_name, semester, subjects_id, teachers_id)
-VALUES ('G006', '01', 4, 'SUB005', 'T004');
+VALUES ('G006', '01', 2, 'SUB005', 'T004');
 INSERT INTO groups (nrc, group_name, semester, subjects_id, teachers_id)
 VALUES ('G007', '01', 1, 'SUB006', 'T005');
 INSERT INTO groups (nrc, group_name, semester, subjects_id, teachers_id)
-VALUES ('G008', '01', 3, 'SUB008', 'T004');
+VALUES ('G008', '01', 3, 'SUB008', 'T006');
 
 -- === FORMAT_TYPES ===
 INSERT INTO format_types (id, type) VALUES ('FT001', 'Lecture');
@@ -108,23 +113,22 @@ INSERT INTO planning_states (id, state) VALUES ('PS004', 'Rejected');
 
 -- === USERS ===
 INSERT INTO users (cc, name, email, password)
-VALUES ('U001', 'Student One', 'student1@uni.edu', 'pass1');
+VALUES ('U001', 'Dr. Alice Johnson', 'alice.johnson@icesi.edu.co', 'pass1');
 INSERT INTO users (cc, name, email, password)
-VALUES ('U002', 'Coordinator', 'coord@uni.edu', 'pass2');
+VALUES ('U002', 'Prof. Carlos Mendez', 'carlos.mendez@icesi.edu.co', 'pass2');
 INSERT INTO users (cc, name, email, password)
-VALUES ('U003', 'Student Two', 'student2@uni.edu', 'pass3');
+VALUES ('U003', 'Dr. Diana Rodriguez', 'diana.rodriguez@icesi.edu.co', 'pass3');
 INSERT INTO users (cc, name, email, password)
-VALUES ('U004', 'Administrator', 'admin@uni.edu', 'pass4');
+VALUES ('U004', 'System Administrator', 'admin@icesi.edu.co', 'pass4');
 INSERT INTO users (cc, name, email, password)
-VALUES ('U005', 'Student Three', 'student3@uni.edu', 'pass5');
+VALUES ('U005', 'Academic Coordinator', 'coordinator@icesi.edu.co', 'pass5');
 INSERT INTO users (cc, name, email, password)
-VALUES ('U006', 'Faculty Coordinator', 'faculty.coord@uni.edu', 'pass6');
+VALUES ('U006', 'Prof. Eduardo Vargas', 'eduardo.vargas@icesi.edu.co', 'pass6');
 
 -- === ROLES ===
-INSERT INTO roles (id, name) VALUES ('R001', 'Student');
-INSERT INTO roles (id, name) VALUES ('R002', 'Coordinator');
-INSERT INTO roles (id, name) VALUES ('R003', 'Administrator');
-INSERT INTO roles (id, name) VALUES ('R004', 'Faculty Coordinator');
+INSERT INTO roles (id, name) VALUES ('R001', 'Teacher');
+INSERT INTO roles (id, name) VALUES ('R002', 'Administrator');
+INSERT INTO roles (id, name) VALUES ('R003', 'Coordinator');
 
 -- === PERMISSIONS ===
 INSERT INTO permissions (id, name, description)
@@ -141,24 +145,23 @@ INSERT INTO permissions (id, name, description)
 VALUES ('P006', 'ApproveSchedules', 'Can approve schedules');
 
 -- === ROLES_PERMISSIONS ===
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R001', 'P001');
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R002', 'P002');
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R002', 'P001');
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R002', 'P004');
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R003', 'P003');
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R003', 'P004');
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R003', 'P001');
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R004', 'P005');
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R004', 'P006');
-INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R004', 'P001');
+INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R001', 'P001'); -- Teacher: Read access
+INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R001', 'P002'); -- Teacher: Write access
+INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R002', 'P001'); -- Administrator: Read access
+INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R002', 'P002'); -- Administrator: Write access
+INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R002', 'P003'); -- Administrator: Delete access
+INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R002', 'P004'); -- Administrator: Admin access
+INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R003', 'P001'); -- Coordinator: Read access
+INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R003', 'P002'); -- Coordinator: Write access
+INSERT INTO roles_permissions (roles_id, permissions_id) VALUES ('R003', 'P005'); -- Coordinator: Approve access
 
 -- === USERS_ROLES ===
-INSERT INTO users_roles (users_cc, roles_id) VALUES ('U001', 'R001');
-INSERT INTO users_roles (users_cc, roles_id) VALUES ('U002', 'R002');
-INSERT INTO users_roles (users_cc, roles_id) VALUES ('U003', 'R001');
-INSERT INTO users_roles (users_cc, roles_id) VALUES ('U004', 'R003');
-INSERT INTO users_roles (users_cc, roles_id) VALUES ('U005', 'R001');
-INSERT INTO users_roles (users_cc, roles_id) VALUES ('U006', 'R004');
+INSERT INTO users_roles (users_cc, roles_id) VALUES ('U001', 'R001'); -- Dr. Alice Johnson: Teacher
+INSERT INTO users_roles (users_cc, roles_id) VALUES ('U002', 'R001'); -- Prof. Carlos Mendez: Teacher
+INSERT INTO users_roles (users_cc, roles_id) VALUES ('U003', 'R001'); -- Dr. Diana Rodriguez: Teacher
+INSERT INTO users_roles (users_cc, roles_id) VALUES ('U004', 'R002'); -- System Administrator: Administrator
+INSERT INTO users_roles (users_cc, roles_id) VALUES ('U005', 'R003'); -- Academic Coordinator: Coordinator
+INSERT INTO users_roles (users_cc, roles_id) VALUES ('U006', 'R001'); -- Prof. Eduardo Vargas: Teacher
 
 -- === USERS_ACADEMIC_PROGRAMS ===
 INSERT INTO users_academic_programs (users_cc, academic_programs_id) VALUES ('U001', 'AP001');
