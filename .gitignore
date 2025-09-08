@@ -38,3 +38,5 @@ out/
 
 /postgres-data/
 /pgadmin-data/
+
+.env
