@@ -26,6 +26,9 @@ dependencies {
 	// Base de datos H2 en memoria para desarrollo
 	runtimeOnly 'com.h2database:h2'
 	
+	// PostgreSQL para producción
+	runtimeOnly 'org.postgresql:postgresql'
+	
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	
